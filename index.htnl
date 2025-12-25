@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontend Auth + CRUD</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Auth + CRUD Frontend</h1>
+
+  <section id="auth">
+    <h2>Login</h2>
+    <input type="email" id="loginEmail" placeholder="Email">
+    <input type="password" id="loginPassword" placeholder="Senha">
+    <button id="loginBtn">Login</button>
+  </section>
+
+  <section id="items" style="display:none;">
+    <h2>Meus Itens</h2>
+    <input type="text" id="newItem" placeholder="Novo item">
+    <button id="addItemBtn">Adicionar Item</button>
+    <ul id="itemList"></ul>
+    <button id="logoutBtn">Logout</button>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
