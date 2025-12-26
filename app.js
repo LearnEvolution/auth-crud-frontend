@@ -2,7 +2,9 @@ const API_URL = "https://auth-crud-api.onrender.com/api";
 
 let token = null;
 
-// LOGIN
+/* ======================
+   LOGIN
+====================== */
 document.getElementById("loginBtn").addEventListener("click", async () => {
   const email = document.getElementById("loginEmail").value;
   const password = document.getElementById("loginPassword").value;
@@ -25,14 +27,49 @@ document.getElementById("loginBtn").addEventListener("click", async () => {
   }
 });
 
-// LOGOUT
+/* ======================
+   CADASTRO
+====================== */
+document.getElementById("registerBtn").addEventListener("click", async () => {
+  const name = document.getElementById("registerName").value;
+  const email = document.getElementById("registerEmail").value;
+  const password = document.getElementById("registerPassword").value;
+
+  if (!name || !email || !password) {
+    alert("Preencha todos os campos");
+    return;
+  }
+
+  const res = await fetch(`${API_URL}/auth/register`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, email, password })
+  });
+
+  const data = await res.json();
+
+  if (data.id) {
+    alert("Usuário cadastrado! Agora faça login.");
+    document.getElementById("registerName").value = "";
+    document.getElementById("registerEmail").value = "";
+    document.getElementById("registerPassword").value = "";
+  } else {
+    alert(data.msg || "Erro no cadastro");
+  }
+});
+
+/* ======================
+   LOGOUT
+====================== */
 document.getElementById("logoutBtn").addEventListener("click", () => {
   token = null;
   document.getElementById("auth").style.display = "block";
   document.getElementById("items").style.display = "none";
 });
 
-// ADICIONAR ITEM
+/* ======================
+   ADICIONAR ITEM
+====================== */
 document.getElementById("addItemBtn").addEventListener("click", async () => {
   const title = document.getElementById("newItem").value;
   if (!title) return;
@@ -50,7 +87,9 @@ document.getElementById("addItemBtn").addEventListener("click", async () => {
   loadItems();
 });
 
-// CARREGAR ITENS
+/* ======================
+   LISTAR ITENS
+====================== */
 async function loadItems() {
   const res = await fetch(`${API_URL}/items`, {
     headers: { "Authorization": `Bearer ${token}` }

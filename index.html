@@ -3,29 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Frontend Auth + CRUD</title>
+  <title>Auth + CRUD Frontend</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="app">
-     <h1>Auth + CRUD Frontend</h1>
+    <h1>Auth + CRUD Frontend</h1>
 
-  <section id="auth">
-    <h2>Login</h2>
-    <input type="email" id="loginEmail" placeholder="Email">
-    <input type="password" id="loginPassword" placeholder="Senha">
-    <button id="loginBtn">Login</button>
-  </section>
+    <!-- AUTH -->
+    <section id="auth">
+      <h2>Login</h2>
+      <input type="email" id="loginEmail" placeholder="Email">
+      <input type="password" id="loginPassword" placeholder="Senha">
+      <button id="loginBtn">Login</button>
 
-  <section id="items" style="display:none;">
-    <h2>Meus Itens</h2>
-    <input type="text" id="newItem" placeholder="Novo item">
-    <button id="addItemBtn">Adicionar Item</button>
-    <ul id="itemList"></ul>
-    <button id="logoutBtn">Logout</button>
-  </section>
+      <hr>
 
-  <script src="app.js"></script>
-</div>
+      <h2>Criar Conta</h2>
+      <input type="text" id="registerName" placeholder="Nome">
+      <input type="email" id="registerEmail" placeholder="Email">
+      <input type="password" id="registerPassword" placeholder="Senha">
+      <button id="registerBtn">Cadastrar</button>
+    </section>
+
+    <!-- ITEMS -->
+    <section id="items" style="display:none;">
+      <h2>Meus Itens</h2>
+      <input type="text" id="newItem" placeholder="Novo item">
+      <button id="addItemBtn">Adicionar Item</button>
+      <ul id="itemList"></ul>
+      <button id="logoutBtn">Logout</button>
+    </section>
+
+    <script src="app.js"></script>
+  </div>
 </body>
 </html>
